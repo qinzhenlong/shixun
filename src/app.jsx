@@ -21,7 +21,8 @@ export default class App extends Component{
 			<HashRouter>
 				<div className="c-contail">
 					<div>
-						<Route exact path="/dynamicDetail" component={DynamicDetail}></Route>
+						{/* <Route exact path="/dynamicDetail" component={DynamicDetail}></Route> */}
+						<Route exact path="/" component={DynamicDetail}></Route>
 						<Route exact path="/trainingTidbits" component={TrainingTidbits}></Route>
 						<Route exact path="/studentMien" component={StudentMien}></Route>
 						<Route exact path="/gradeQuery" component={GradeQuery}></Route>

@@ -8,7 +8,8 @@ export default class Common extends Component{
         return (<div className="c-common-head">
             <div className="c-banner"></div>
             <ul className="c-nav clearfix">
-                <li><NavLink activeClassName="active" exact to="/dynamicDetail">动态信息</NavLink></li>
+                {/* <li><NavLink activeClassName="active" exact to="/dynamicDetail">动态信息</NavLink></li> */}
+                <li><NavLink activeClassName="active" exact to="/">动态信息</NavLink></li>
                 <li><NavLink activeClassName="active" exact to="/trainingTidbits">实训花絮</NavLink></li>
                 <li><NavLink activeClassName="active" exact to="/studentMien">学员风采</NavLink></li>
                 <li><NavLink activeClassName="active" exact to="/gradeQuery">成绩查询</NavLink></li>

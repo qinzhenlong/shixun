@@ -17,6 +17,7 @@ module.exports = {
 	entry:{index:['./src/index.js']},
 	output:{
 		path:__dirname+"/build",
+		//publicPath:"/image/",
 		filename:"js/[name].[hash].js"
 	},
 	module:{
@@ -32,6 +33,10 @@ module.exports = {
 			test:/\.vue$/,
 			loader:"vue-loader"
 		},
+		{
+　　　　　　  test: /\.(png|jpg|gif)$/,
+　　　　　　  loader: 'url-loader?limit=8192&name=assets/images/[name].[ext]'
+　　　　 },
 		{
 			test: /\.js$|\.jsx$/,
 			loader: 'babel-loader',

@@ -11,17 +11,20 @@ export default class DynamicDetail extends Component{
         this.state.detailList.forEach((value,index)=>{
             detailHtml.push(<li className="list" key={index}>
                 <div className="title"><div>23</div>加菲猫</div>
-                <div>小图标</div>
                 <div className="contain clearfix">
                     <div className="photo f-left"></div>
                     <div className="text-contain f-left">撒打算打算离开多久啊看金德拉克商界大佬世界大力士肯德基阿莱克斯多久啊来看电视剧阿里斯顿卡基地撒打算打算离开多久啊看金德拉克商界大佬世界大力士肯德基阿莱克斯多久啊来看电视剧阿里斯顿卡基地撒打算打算离开多久啊看金德拉克商界大佬世界大力士肯德基阿莱克斯多久啊来看电视剧阿里斯顿卡基地</div>
                 </div>
-                <div className="contain-foot">内容页脚部分</div>
+                <div className="contain-foot">2017-11-06</div>
             </li>);
         });
         return (<div className="c-dynamic-detail">
             <Common name="asdasd"/>
             <div className="detail-list">
+                <div className="search-box clearfix">
+                    <input type="text" defaultValue="aa" />
+                    <button>查看</button>
+                </div>
                 <ul className="ul-box">
                     {detailHtml}
                 </ul>
