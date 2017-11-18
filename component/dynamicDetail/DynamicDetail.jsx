@@ -2,7 +2,8 @@ import React,{Component,ReactDOM} from "react";
 import reactDOM,{render} from "react-dom";
 import { BrowserRouter,StaticRouter, Route,Link,hashHistory,NavLink,HashRouter } from 'react-router-dom';
 
-import Common from "../common.jsx"
+import Common from "../common.jsx";
+import Form,{TextBox} from "../form/Form.jsx";
 
 
 export default class DynamicDetail extends Component{
@@ -19,11 +20,11 @@ export default class DynamicDetail extends Component{
             </li>);
         });
         return (<div className="c-dynamic-detail">
-            <Common name="asdasd"/>
+            <Common ref="common"/>
             <div className="detail-list">
                 <div className="search-box clearfix">
-                    <input type="text" defaultValue="aa" />
-                    <button>查看</button>
+                    <input type="text" ref="check" defaultValue="" />
+                    <button onClick = {this.check}>查看</button>
                 </div>
                 <ul className="ul-box">
                     {detailHtml}
@@ -40,7 +41,22 @@ export default class DynamicDetail extends Component{
     }
 
     componentDidMount(){
-
+        //console.log(this.refs.input.value);
+        $.ajax({
+            beforeSend: function(request) {
+                request.setRequestHeader("Authorization", "Gc6ELUJoUUXL4Seb735E5Gn32YgbCuSj07+A3e9lG6Ebagj75g0T2LtKm3sTQZwwp71QZJ/Uy+vMXZOnK2KrvtGeXfwqOHW+4CoyXio3SiTu9LjdtITFHShCmYWMZqdvfJiOAzsfZysArsh4vzUeYA==");
+           },
+            url:"http://combatingillegaltrainingweb20171117120433.chinacloudsites.cn/api/student/Register",
+            type:"post",
+            //data:submitDate,
+            success:function(result){
+                console.log(window.location);
+            }
+        });
+    }
+    //搜索入口
+    check = ()=>{
+        alert(this.refs.check.value);
     }
 
 }

@@ -8,8 +8,9 @@ import Common from "../common.jsx"
 export default class TrainingManagement extends Component{
     render(){
         return (<div className="c-trainingManagement">
-            <Common/>
+            <Common ref="common"/>
             实训管理
+            <button onClick={this.loginout}>注销</button>
         </div>)
     }
     constructor(prop){
@@ -22,6 +23,11 @@ export default class TrainingManagement extends Component{
 
     componentDidMount(){
 
+    }
+
+    loginout = ()=>{ 
+        window.localStorage.clear();
+        window.location.href=window.location.origin+"#/baseOverview";
     }
 
 }

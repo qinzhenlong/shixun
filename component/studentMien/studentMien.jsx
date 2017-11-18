@@ -11,7 +11,7 @@ export default class StudentMien extends Component{
     render(){
         
         return (<div className="c-studentMien">
-            <Common/>
+            <Common ref="common"/>
             <div className="studentMien-detail">
                 {this.state.studentList.map((value,index)=>{
                     return <div className="banner-list" key = {index}>

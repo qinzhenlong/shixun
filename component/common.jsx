@@ -14,15 +14,36 @@ export default class Common extends Component{
                 <li><NavLink activeClassName="active" exact to="/studentMien">学员风采</NavLink></li>
                 <li><NavLink activeClassName="active" exact to="/gradeQuery">成绩查询</NavLink></li>
                 <li><NavLink activeClassName="active" exact to="/baseOverview">基地概况</NavLink></li>
-                {this.state.flag?<li><NavLink activeClassName="active" exact to="/trainingManagement">实训管理</NavLink></li>:<li><NavLink activeClassName="active" exact to="/ee">注册</NavLink></li>}
+                {this.state.flag?<li><NavLink activeClassName="active" exact to="/trainingManagement">实训管理</NavLink></li>:<li><NavLink activeClassName="active" exact to="/register">注册</NavLink></li>}
             </ul>
         </div>)
     }
     constructor(prop){
         super(prop);
+        //console.log(this.props);
         this.state = {
             flag:true,
         }
+        //window.localStorage.loginname = "22"
+        //console.log(window.localStorage.loginname);
+    }
+
+    componentDidMount(){
+        
+        var getUserDate = {};
+        window.location.search.substring(1).split("&").forEach(value=>{
+            getUserDate[value.split("=")[0]] = value.split("=")[1]
+        });
+
+        //console.log(getUserDate);
+        
+        this.setState({
+            //flag:window.localStorage.loginname == undefined?false:true
+            flag:getUserDate.isRegister=="true"?true:false
+        });
+        console.log(this);
+        console.log(getUserDate.isRegister);
+        
     }
 
 }

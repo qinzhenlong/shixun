@@ -10,10 +10,13 @@ import StudentMien from "../component/studentMien/studentMien.jsx";
 import GradeQuery from "../component/gradeQuery/gradeQuery.jsx";
 import BaseOverview from "../component/baseOverview/baseOverview.jsx";
 import TrainingManagement from "../component/trainingManagement/trainingManagement.jsx";
+import Register from "../component/register/register.jsx";
+
+import Graderesult from "../component/graderesult/graderesult.jsx";
 
 
 //引入组件
-import Index from "../component/index.jsx";
+import Common from "../component/common.jsx";
 
 export default class App extends Component{
 	render(){
@@ -28,6 +31,8 @@ export default class App extends Component{
 						<Route exact path="/gradeQuery" component={GradeQuery}></Route>
 						<Route exact path="/baseOverview" component={BaseOverview}></Route>
 						<Route exact path="/trainingManagement" component={TrainingManagement}></Route>
+						<Route exact path="/register" component={Register}></Route>
+						<Route exact path="/graderesult" component={Graderesult}></Route>
 					</div>
 				</div>
 			</HashRouter>

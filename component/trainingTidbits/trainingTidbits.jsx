@@ -20,7 +20,7 @@ export default class TrainingTidbits extends Component{
             </li>);
         });
         return (<div className="c-TrainingTidbits">
-            <Common name="asdasd"/>
+            <Common ref="common"/>
             <div className="detail-list">
                 <ul className="ul-box">
                     {detailHtml}
