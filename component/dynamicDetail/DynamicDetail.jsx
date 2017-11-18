@@ -5,18 +5,22 @@ import { BrowserRouter,StaticRouter, Route,Link,hashHistory,NavLink,HashRouter }
 import Common from "../common.jsx";
 import Form,{TextBox} from "../form/Form.jsx";
 
+import {url} from "../util.js"
+
 
 export default class DynamicDetail extends Component{
     render(){
         let detailHtml = [];
         this.state.detailList.forEach((value,index)=>{
             detailHtml.push(<li className="list" key={index}>
-                <div className="title"><div>23</div>加菲猫</div>
-                <div className="contain clearfix">
-                    <div className="photo f-left"></div>
-                    <div className="text-contain f-left">撒打算打算离开多久啊看金德拉克商界大佬世界大力士肯德基阿莱克斯多久啊来看电视剧阿里斯顿卡基地撒打算打算离开多久啊看金德拉克商界大佬世界大力士肯德基阿莱克斯多久啊来看电视剧阿里斯顿卡基地撒打算打算离开多久啊看金德拉克商界大佬世界大力士肯德基阿莱克斯多久啊来看电视剧阿里斯顿卡基地</div>
-                </div>
-                <div className="contain-foot">2017-11-06</div>
+                <a href={value.link}>
+                    <div className="title"><div>{index+1}</div>{value.tittle}</div>
+                        <div className="contain clearfix">
+                            <div className="photo f-left"><img src={value.pictureUrl}/></div>
+                            <div className="text-contain f-left">{value.content}</div>
+                        </div>
+                    <div className="contain-foot">{value.createtime}</div>
+                </a>               
             </li>);
         });
         return (<div className="c-dynamic-detail">
@@ -36,21 +40,29 @@ export default class DynamicDetail extends Component{
         
         super(prop);
         this.state = {
-            detailList:[1,2]
+            detailList:[]
         }
     }
 
     componentDidMount(){
-        //console.log(this.refs.input.value);
+        console.log(url);
+        var accesskey = window.location.search?window.location.search.split("accessToken=")[1]:"";
         $.ajax({
             beforeSend: function(request) {
-                request.setRequestHeader("Authorization", "Gc6ELUJoUUXL4Seb735E5Gn32YgbCuSj07+A3e9lG6Ebagj75g0T2LtKm3sTQZwwp71QZJ/Uy+vMXZOnK2KrvtGeXfwqOHW+4CoyXio3SiTu9LjdtITFHShCmYWMZqdvfJiOAzsfZysArsh4vzUeYA==");
+                request.setRequestHeader("Authorization",accesskey);
            },
-            url:"http://combatingillegaltrainingweb20171117120433.chinacloudsites.cn/api/student/Register",
+            url:url+`/api/DynamicInformation/${1}/${10}`,
             type:"post",
-            //data:submitDate,
-            success:function(result){
-                console.log(window.location);
+            success:(result)=>{
+                //console.log(window.location.search.split("accessToken=")[1]);
+                if(result.status == "001"){
+                    if(result.content.status==1){
+                        console.log(this);
+                        this.setState({
+                            detailList:result.content.model.entities
+                        });
+                    }
+                }
             }
         });
     }

@@ -1,0 +1,1 @@
+export var url = "http://combatingillegaltrainingweb20171117120433.chinacloudsites.cn/";

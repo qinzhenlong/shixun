@@ -6,7 +6,9 @@ import { BrowserRouter,StaticRouter, Route,Link,hashHistory,NavLink,HashRouter }
 export default class Common extends Component{
     render(){
         return (<div className="c-common-head">
-            <div className="c-banner"></div>
+            <div className="c-banner">
+                <img style={{height:"100%",width:"100%",display:"block"}} src="../assets/images/index.jpg" alt=""/>
+            </div>
             <ul className="c-nav clearfix">
                 {/* <li><NavLink activeClassName="active" exact to="/dynamicDetail">动态信息</NavLink></li> */}
                 <li><NavLink activeClassName="active" exact to="/">动态信息</NavLink></li>
