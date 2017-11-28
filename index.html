@@ -1,17 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-	<title>实训管理</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="format-detection" content="telephone=no, email=no, adress=no" />
+  <link rel="stylesheet" href="assets/time/css/date.css">
+
+	<title>打非实训</title>
 	<script>
 		(function () {
 			var phoneScale = parseInt(window.screen.width) / 750;
-			document.write('<meta name="viewport" content="width=750, minimum-scale=' + phoneScale + ', maximum-scale=' + phoneScale + ', user-scalable=no">');
+			document.write('<meta name="viewport" content="width=device-width, minimum-scale=' + phoneScale + ', maximum-scale=' + phoneScale + ', user-scalable=no">');
 		})();
 	</script>
 	<script src="assets/js/jquery-3.2.1.min.js"></script>
+	<script src="assets/js/jweixin-1.0.0.js"></script>
+	<script src="assets/js/sha.js"></script>
+	<script src="assets/time/js/date.js"></script>
 </head>
 <body>
 	<div id="contain"></div>
+
+	<div id="datePlugin"></div>
 </body>
 </html>

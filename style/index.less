@@ -9,6 +9,25 @@
    box-sizing: border-box;
 }
 
+[contenteditable = "true"], input, textarea {
+    -webkit-user-select: auto!important;
+    -khtml-user-select: auto!important;
+    -moz-user-select: auto!important;
+    -ms-user-select: auto!important;
+    -o-user-select: auto!important;
+    user-select: auto!important;
+}
+
+html{
+    font-size: 10px;
+}
+body{
+    max-width: 750px;
+}
+p{
+    max-height: 99999px;
+}
+
 body{
     width: 750px;
     margin: 0 auto;
@@ -38,26 +57,99 @@ body{
 .f-left{
     float: left;
 }
+
+.f-right{
+    float: right;
+}
+.hide{
+    display: none !important;
+}
+
+
+
+//弹窗样式
+.c-tips{
+    padding: 50px 50px;
+    position: fixed;
+    transform: translate(-50%,-50%);
+    top:30%;
+    left: 50%;
+    background: rgba(0,0,0,0.6);
+    color:#ffffff;
+    font-size: 70px;
+    width: 440px;
+    font-size: 42px;
+    box-sizing: content-box;
+    text-align: center;
+}
+
 .c-common-head{
     .c-banner{
         width: 750px;
         height: 400px;
         background: #ccc;
     }
+    .hiddle-scroll{
+        position: relative;
+    }
+    .nav-box{
+        width:100%;
+        overflow-y: auto;
+        height: 80px;
+        -webkit-overflow-scrolling: touch;
+        position: relative;
+    }
+    .scroll-right{
+        position: absolute;
+        top: 5px;
+        right: 0px;
+        color: #252424;
+        font-size: 60px;
+        height: 68px;
+        line-height: 48px;
+        padding: 0 5px 0 5px;
+        background: #ffffff;
+        z-index: 100;
+        &:after{
+            content: "";
+            display: block;
+            width: 25px;
+            height: 25px;
+            border-top: 4px solid #000000;
+            border-right: 4px solid #000000;
+            transform: rotate(45deg);
+            margin-top: 16px;
+            margin-right: 8px;
+            color:#000000;
+        }
+    }
+    .scroll-left{
+        position: absolute;
+        top: 0px;
+        left: 6px;
+        color:#ccc;
+        font-size: 46px;
+    }
+    .hiddle-scroll{
+        height: 70px;
+        overflow-y: hidden;
+    }
     .c-nav{
-        width: 720px;
+        width: 1500px;
         margin:0 auto;
         margin-top: 7px;
+        font-size: 40px;
+        height: 70px;
         li{
             float: left;
-            width: 120px;
+            width: 250px;
             text-align: center;
             a{
                 text-decoration: none;
-                color:#ccc;
+                color:rgb(126, 123, 123);
             }
             a.active{
-                border-bottom:3px solid rgb(31, 147, 243); 
+                border-bottom:5px solid rgb(31, 147, 243); 
             }
         }
     }
@@ -65,10 +157,16 @@ body{
 
 //动态详情
 .c-dynamic-detail{
+    .loadMore{
+        text-align: center;
+        color:#949191;
+        font-size: 30px;
+        padding-bottom: 20px;
+    }
     .detail-list{
-        width: 720px;
+        //width: 720px;
         margin: 0 auto;
-        background: #ece9e9;
+        background: #f3f1f1;
         //height: 500px;
         margin-top: 10px;
         .search-box{
@@ -76,21 +174,23 @@ body{
             padding-right: 5%;
             padding-bottom: 15px;
             margin: 0 auto;
-            padding-top: 15px;
+            padding-top: 20px;
             border-bottom: 1px solid #ccc;
             input{
                 border: 0;
                 display: inline-block;
-                height: 35px;
+                height: 65px;
                 outline: none;
                 width: 70%;
-                text-indent: 8px;
+                text-indent: 15px;
                 color: #6d6969;
+                vertical-align: top;
+                font-size: 36px;
             }
             button{
                 width: 27%;
-                height: 35px;
-                line-height: 35px;
+                height: 65px;
+                line-height: 65px;
                 background: #47a4f5;
                 display: inline-block;
                 box-sizing: border-box;
@@ -99,7 +199,8 @@ body{
                 cursor: pointer;
                 border: 0;
                 color: #ffffff;
-                font-size: 15px;
+                font-size: 35px;
+                border-radius: 7px;
             }
         }
         .ul-box{
@@ -112,49 +213,98 @@ body{
                 //height: 200px;
                 margin-bottom:10px;
                 padding: 10px 10px;
+                border-bottom: 1px solid #ccc;
+                &:last-child{
+                    border-bottom: none;
+                }
                 a{
                     text-decoration: none;
                 }
                 .title{
-                    font-size: 20px;
                     font-weight: 700;
                     position: relative;
-                    text-indent: 27px;
+                    //text-indent: 50px;
                     color:#000000;
+                    line-height: 45px;
+                    font-size: 32px;
+                    padding-bottom: 10px;
+                    width: 100%;
+                    max-height: 999999px;
                     div{
                         position: absolute;
                         left: 0;
                         top:2px;
-                        width: 25px;
-                        height: 25px;
+                        width: 40px;
+                        height: 40px;
                         border: 2px solid #e28b8b;
                         border-radius: 50%;
-                        line-height: 23px;
+                        line-height: 38px;
                         text-align: center;
                         text-indent: 0;
                         color:#e28b8b;
-                        font-size: 14px;
+                        font-size: 28px;
                     }
                 }
                 .contain{
                     margin-top: 5px;
                 }
                 .photo{
-                    width: 100px;
-                    height: 100px;
+                    width: 200px;
+                    height: 150px;
                     background: #666666;
+                    img{
+                        width: 100%;
+                        height: 100%;
+                    }
                 }
                 .text-contain{
-                    width: 580px;
+                    width: 480px;
                     padding: 0 10px;
                     color:#737070;
+                    font-size: 30px;
+                    line-height: 37px;
                 }
                 .contain-foot{
                     text-align: right;
                     color:#737070;
+                    font-size: 21px;
+                    padding-top:5px;
+                    max-height: 999999px;
                 }
             }
         }
     }
 }
 
+
+#trainingManagement-btn{
+    margin: 0 auto;
+    display: block;
+    font-size: 40px;
+    padding: 20px 60px;
+    border-radius: 8px;
+    margin-top: 220px;
+}
+
+
+@keyframes mymove{
+    0% {right:6px;}
+    50% {right:0px;}
+    100% {right:6px;}
+}
+
+
+//组件样式重置
+#dateshadow{
+    z-index: 1000 !important;
+}
+#dateconfirm{
+    background: #10abe9;
+}
+
+#datetitle{
+    background: #10abe9;
+}
+#datePage{
+    top:410px;
+}
