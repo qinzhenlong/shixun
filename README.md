@@ -8,4 +8,4 @@ npm i     &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;安装 NPM 依赖
 
 npm run dev  &ensp;&ensp;&ensp;&ensp;&ensp;执行脚本
 
-localhost:3100  &ensp;&ensp;&ensp;&ensp;&ensp;打开浏览器查看效果
+localhost:3100  &ensp;&ensp;&ensp;&ensp;&ensp;打开浏览器查看效果.  
