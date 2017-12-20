@@ -1,4 +1,7 @@
 # 新建项目
+
+npm install webpack -g 全局安装webpack
+
 git clone https://github.com/LemonTree-shine/react.git     &ensp;&ensp;&ensp;&ensp;&ensp;克隆脚手架
 
 npm i     &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;安装 NPM 依赖
